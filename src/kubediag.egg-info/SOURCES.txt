@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+src/kubediag/__init__.py
+src/kubediag/analyzer.py
+src/kubediag/cli.py
+src/kubediag/client.py
+src/kubediag/collector.py
+src/kubediag/models.py
+src/kubediag/reporter.py
+src/kubediag/rules.py
+src/kubediag.egg-info/PKG-INFO
+src/kubediag.egg-info/SOURCES.txt
+src/kubediag.egg-info/dependency_links.txt
+src/kubediag.egg-info/entry_points.txt
+src/kubediag.egg-info/requires.txt
+src/kubediag.egg-info/top_level.txt
+tests/test_rules.py

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: probe-failed-pod
+  namespace: default
+spec:
+  containers:
+  - name: bad-prober
+    image: nginx
+    readinessProbe:
+      exec:
+        command:
+        - cat
+        - /tmp/healthy
+      initialDelaySeconds: 2
+      periodSeconds: 2

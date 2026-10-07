@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pending-pod
+  namespace: default
+spec:
+  containers:
+  - name: sleeper
+    image: alpine
+    command: ["sleep", "3600"]
+  nodeSelector:
+    non-existent-label: this-will-never-match

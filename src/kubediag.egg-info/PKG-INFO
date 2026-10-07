@@ -1,3 +1,12 @@
+Metadata-Version: 2.4
+Name: kubediag
+Version: 0.1.0
+Summary: Kubernetes Incident and Health Analyzer
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: kubernetes
+Requires-Dist: rich
+
 # KubeDiag
 
 KubeDiag is a small but technically credible Kubernetes incident and health analyzer written in Python. It detects common cluster problems such as:
@@ -8,32 +17,6 @@ KubeDiag is a small but technically credible Kubernetes incident and health anal
 - NotReady Nodes
 
 KubeDiag collects rich evidence directly from the Kubernetes API without deploying any agents into your cluster.
-
-## Architecture
-
-```mermaid
-flowchart TD
-    Cluster[Kubernetes Cluster] --> API[Kubernetes API]
-    
-    subgraph KubeDiag [KubeDiag Application]
-        Client[KubeDiag Client]
-        Collector[Evidence Collectors]
-        Rules[Incident Detection Rules]
-        Engine[Diagnosis Engine]
-        CLI[CLI Output]
-        
-        API --> Client
-        Client --> Collector
-        Collector --> Rules
-        Rules --> Engine
-        Engine --> CLI
-    end
-
-    subgraph Development [Development & CI]
-        Tests[Unit Tests] -.->|Mocks| Collector
-        Docker[Docker Image] -.->|Containerizes| KubeDiag
-    end
-```
 
 ## Setup Development Environment
 
@@ -46,9 +29,7 @@ flowchart TD
 
 2. Run the test suite:
    ```bash
-   python3 -m pytest tests/
-   # or
-   .venv/bin/pytest tests/
+   pytest tests/
    ```
 
 ## Demonstration with Kind

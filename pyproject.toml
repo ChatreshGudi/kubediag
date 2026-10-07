@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kubediag"
+version = "0.1.0"
+description = "Kubernetes Incident and Health Analyzer"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "kubernetes",
+    "rich",
+]
+
+[project.scripts]
+kubediag = "kubediag.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
